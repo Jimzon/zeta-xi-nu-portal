@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeta Xi Nu | Commemorative Digital Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@100;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #D4AF37; --charcoal: #121212; --black: #080808; }
+        body { background-color: var(--black); color: #e5e5e5; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        .font-header { font-family: 'Cinzel', serif; }
+        .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+        
+        .gold-text { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
+        .hero-bg {
+            background: linear-gradient(rgba(8, 8, 8, 0.8), rgba(45, 17, 69, 0.4), rgba(8, 8, 8, 1)), 
+                        url('https://images.unsplash.com/photo-1590684285848-385072023d83?q=80&w=1920');
+            background-size: cover; background-position: center;
+        }
+        .nav-link { font-size: 0.6rem; letter-spacing: 0.2em; transition: 0.3s; }
+        .nav-link:hover { color: var(--gold); }
+    </style>
+</head>
+<body class="antialiased">
+
+   <!-- Navigation -->
+<nav class="fixed w-full z-[100] bg-black/90 backdrop-blur-md px-6 md:px-10 py-5 flex justify-between items-center border-b border-white/5">
+    <div class="font-header gold-text text-xl font-bold tracking-widest">ΩΨΦ ZEN</div>
+    
+    <!-- Desktop Menu (Hidden on Mobile) -->
+    <div class="hidden lg:flex space-x-6">
+        <a href="#messages" class="nav-link font-header uppercase">Messages</a>
+        <a href="#history" class="nav-link font-header uppercase">History</a>
+        <a href="#engagement" class="nav-link font-header uppercase">Global</a>
+        <a href="#action" class="nav-link font-header uppercase">Action</a>
+        <a href="#celebration" class="nav-link font-header uppercase">Chartering</a>
+        <a href="#experience" class="nav-link font-header uppercase">Digital</a>
+        <a href="#legacy" class="nav-link font-header uppercase">Legacy</a>
+        <a href="#vision" class="nav-link font-header uppercase">Vision</a>
+    </div>
+
+    <!-- Burger Button (Visible on Mobile) -->
+    <button id="burger-btn" class="lg:hidden flex flex-col justify-between w-6 h-4 z-[110] relative focus:outline-none">
+        <span class="block w-full h-0.5 bg-white transition-all duration-300" id="line1"></span>
+        <span class="block w-full h-0.5 bg-white transition-all duration-300" id="line2"></span>
+        <span class="block w-full h-0.5 bg-white transition-all duration-300" id="line3"></span>
+    </button>
+</nav>
+
+<!-- Mobile Slide-out Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[90] transform translate-x-full transition-transform duration-500 lg:hidden flex flex-col items-center justify-center space-y-8">
+    <a href="#messages" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Opening Messages</a>
+    <a href="#history" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Foundations & History</a>
+    <a href="#engagement" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Global Engagement</a>
+    <a href="#action" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Brotherhood in Action</a>
+    <a href="#celebration" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Chartering Celebration</a>
+    <a href="#experience" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Digital Experience</a>
+    <a href="#legacy" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Brotherhood Legacy</a>
+    <a href="#vision" onclick="toggleMenu()" class="nav-link font-header text-lg uppercase tracking-widest">Vision Forward</a>
+</div>
+
+
+
+    <header class="relative h-screen flex items-center justify-center text-center hero-bg px-6">
+        <div class="max-w-5xl space-y-8">
+            <h4 class="font-header gold-text tracking-[0.6em] text-xs uppercase opacity-80">Omega Psi Phi Fraternity, Inc.</h4>
+            <div class="gold-border p-10 bg-black/40 backdrop-blur-md mb-8">
+                <h1 class="text-5xl md:text-8xl font-header text-white mb-2">ZETA XI NU</h1>
+                <p class="text-gold-soft font-header tracking-[0.4em] text-lg">Chartering Commemorative</p>
+            </div>
+            <p class="font-serif-italic text-2xl text-gray-300">"Friendship is Essential to the Soul"</p>
+            <div class="pt-12"><a href="#messages" class="gold-text font-header text-xs tracking-widest border-b border-gold pb-2">BEGIN THE JOURNEY</a></div>
+        </div>
+    </header>
+
+    <section id="messages" class="py-32 bg-[#0a0a0a] px-10">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-header gold-text text-3xl text-center mb-20 uppercase tracking-[0.3em]">Opening Messages</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="gold-border p-8 text-center"><h4 class="font-header text-xs mb-4">Grand Basileus</h4><p class="text-xs text-gray-500 italic">"A legacy of growth and global excellence."</p></div>
+                <div class="gold-border p-8 text-center"><h4 class="font-header text-xs mb-4">13th District Rep</h4><p class="text-xs text-gray-500 italic">"Expanding our light across the Motherland."</p></div>
+                <div class="gold-border p-8 text-center"><h4 class="font-header text-xs mb-4">Chapter Basileus</h4><p class="text-xs text-gray-500 italic">"Welcome to Zeta Xi Nu, Lagos."</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="py-32 bg-black px-10">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            <div class="md:w-1/2 space-y-6">
+                <h2 class="font-header gold-text text-4xl uppercase">Foundations & History</h2>
+                <p class="font-light text-gray-400 leading-loose text-sm">The history of Zeta Xi Nu's founding—a story of vision, unity, and disciplined preparation by thirteen distinguished brothers.</p>
+            </div>
+            <div class="md:w-1/2 gold-border aspect-video bg-zinc-900/50 flex items-center justify-center font-header text-xs italic">Historical Archive Visual</div>
+        </div>
+    </section>
+
+    <section id="engagement" class="py-32 bg-[#0a0a0a] px-10 text-center">
+        <h2 class="font-header gold-text text-3xl mb-8 uppercase">Global & Diplomatic Engagement</h2>
+        <p class="max-w-3xl mx-auto text-gray-400 font-light italic">"Official welcome from the U.S. Diplomatic Community and our expanding presence in Africa."</p>
+    </section>
+
+    <section id="action" class="py-32 bg-black px-10">
+        <h2 class="font-header gold-text text-3xl text-center mb-16 uppercase">Brotherhood in Action</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto text-center">
+            <div class="gold-border p-8 text-[10px] uppercase tracking-widest">Airport Reception</div>
+            <div class="gold-border p-8 text-[10px] uppercase tracking-widest">Women’s Event</div>
+            <div class="gold-border p-8 text-[10px] uppercase tracking-widest">Talent Show</div>
+            <div class="gold-border p-8 text-[10px] uppercase tracking-widest">Charles Young Memorial</div>
+        </div>
+    </section>
+
+    <section id="celebration" class="py-32 bg-[#0a0a0a] px-10 text-center">
+        <div id="experience" class="max-w-4xl mx-auto space-y-12">
+            <h2 class="font-header gold-text text-4xl uppercase">Chartering Celebration</h2>
+            <div class="gold-border p-20 bg-zinc-950/50 backdrop-blur-lg">
+                <h3 class="font-serif-italic text-2xl mb-6 italic">The Digital Experience</h3>
+                <p class="text-sm text-gray-500 mb-8 uppercase tracking-widest">Interactive Galleries & 360° Visual Storytelling</p>
+                <button class="border border-gold px-12 py-4 text-[10px] font-header tracking-widest uppercase hover:bg-gold hover:text-black transition">Launch Interactive Journal</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="legacy" class="py-32 bg-black px-10 text-center">
+        <h2 class="font-header gold-text text-3xl mb-12 uppercase">Brotherhood Legacy</h2>
+        <div class="flex justify-center space-x-12 items-center">
+            <div class="w-48 h-48 rounded-full border-4 border-yellow-700 bg-gradient-to-br from-yellow-200 to-yellow-800 flex items-center justify-center font-bold text-black shadow-2xl">ZEN COIN</div>
+            <div class="text-left"><h4 class="font-header text-sm">Official Merchandise</h4><p class="text-[10px] text-gray-600 tracking-widest mb-4">THE BOUTIQUE</p><button class="gold-text font-bold text-[10px] border border-gold/30 px-6 py-2">SHOP NOW</button></div>
+        </div>
+    </section>
+
+    <section id="vision" class="py-32 bg-[#0a0a0a] px-10 text-center">
+        <h2 class="font-header gold-text text-4xl mb-6 uppercase">Vision Forward</h2>
+        <p class="text-sm text-gray-400 font-light italic max-w-2xl mx-auto">"Our commitment to future generations and the sustainability of Omega's mission in Nigeria."</p>
+    </section>
+
+    <footer class="py-20 bg-black px-10 border-t border-white/5 text-center">
+        <div class="font-header gold-text text-2xl mb-10">ΩΨΦ ZEN</div>
+        <p class="text-[10px] text-gray-700 tracking-widest uppercase mb-4 italic">Acknowledgments to our Sponsors, Partners, and Families.</p>
+        <div class="pt-10 border-t border-white/5 space-y-2">
+            <p class="text-[9px] text-gray-600 tracking-widest uppercase">© 2024 Omega Psi Phi Fraternity, Inc. | Zeta Xi Nu Chapter, Lagos Nigeria</p>
+            <p class="text-[9px] gold-text font-bold tracking-widest uppercase italic opacity-50">Powered by Tech Delivery Partners</p>
+        </div>
+    </footer>
+
+
+
+</body>
+
+<script>
+    const burgerBtn = document.getElementById('burger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const line3 = document.getElementById('line3');
+
+    function toggleMenu() {
+        // Toggle slide menu
+        mobileMenu.classList.toggle('translate-x-full');
+        mobileMenu.classList.toggle('translate-x-0');
+
+        // Animate burger to X
+        line1.classList.toggle('rotate-45');
+        line1.classList.toggle('translate-y-1.5');
+        
+        line2.classList.toggle('opacity-0');
+        
+        line3.classList.toggle('-rotate-45');
+        line3.classList.toggle('-translate-y-2');
+        
+        // Prevent scrolling when menu is open
+        document.body.classList.toggle('overflow-hidden');
+    }
+
+    burgerBtn.addEventListener('click', toggleMenu);
+</script>
+</html>

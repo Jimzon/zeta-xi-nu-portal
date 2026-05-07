@@ -133,27 +133,48 @@
   }
 
   .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% 30%, rgba(60,25,90,0.55), transparent 65%),
-      radial-gradient(ellipse 50% 60% at 80% 80%, rgba(30,12,55,0.4), transparent 60%),
-      url('images/hero-img.png') center/cover no-repeat;
-    transform: scale(1.06);
-    animation: heroZoom 14s ease-out forwards;
-  }
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse 70% 50% at 50% 30%,
+      rgba(60,25,90,0.55),
+      transparent 65%
+    ),
+
+    radial-gradient(
+      ellipse 50% 60% at 80% 80%,
+      rgba(30,12,55,0.4),
+      transparent 60%
+    ),
+
+    url('../images/hero-img.png') center/cover no-repeat;
+
+  transform: scale(1.06);
+
+  animation: heroZoom 14s ease-out forwards;
+
+  filter: brightness(0.72) saturate(1.05);
+}
 
   @keyframes heroZoom {
     from { transform: scale(1.06); }
     to   { transform: scale(1.0); }
   }
 
-  .hero-vignette {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to bottom, rgba(7,7,7,0.55) 0%, rgba(7,7,7,0.1) 30%, rgba(7,7,7,0.15) 65%, rgba(7,7,7,1) 100%);
-  }
+ .hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7,7,7,0.78) 0%,
+      rgba(7,7,7,0.45) 25%,
+      rgba(7,7,7,0.35) 55%,
+      rgba(7,7,7,0.88) 100%
+    );
+}
 
   .hero-content {
     position: relative;
@@ -161,6 +182,8 @@
     padding: 68px 2rem 0;
     max-width: 860px;
     width: 100%;
+      backdrop-filter: blur(1.5px);
+
   }
 
   .hero-eyebrow {
@@ -184,17 +207,20 @@
     margin-bottom: 0.2em;
     opacity: 0;
     animation: fadeUp 1.2s 0.9s forwards;
+     text-shadow:
+    0 4px 25px rgba(0,0,0,0.55);
   }
 
   .hero-subtitle {
     font-family: var(--display);
     font-size: clamp(0.6rem, 1.4vw, 0.82rem);
     letter-spacing: 0.35em;
-    color: rgba(255,255,255,0.38);
+   color: rgba(255,255,255,0.58);
     text-transform: uppercase;
     margin-bottom: 1.2rem;
     opacity: 0;
     animation: fadeUp 1s 1.2s forwards;
+    
   }
 
   .hero-rule {
@@ -211,22 +237,28 @@
     font-size: clamp(1.1rem, 3vw, 1.8rem);
     font-style: italic;
     font-weight: 300;
-    color: var(--gold-light);
+    color: #f3d98a;
     letter-spacing: 0.04em;
     margin-bottom: 0.9rem;
     opacity: 0;
     animation: fadeUp 1s 1.6s forwards;
+        text-shadow:
+    0 3px 18px rgba(0,0,0,0.55);
   }
 
   .hero-desc {
     font-size: 0.78rem;
     line-height: 1.9;
     letter-spacing: 0.05em;
-    color: rgba(213,206,204,0.5);
+   color: rgba(255,255,255,0.72);
     max-width: 520px;
     margin: 0 auto 1.8rem;
     opacity: 0;
     animation: fadeUp 1s 1.8s forwards;
+     
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,0.45);
   }
 
   .btn-primary {

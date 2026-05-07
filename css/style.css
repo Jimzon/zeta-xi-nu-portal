@@ -397,6 +397,9 @@
   /* ─────────────────────────────
    MESSAGES SECTION
 ───────────────────────────── */
+/* ─────────────────────────────
+   MESSAGES SECTION
+───────────────────────────── */
 
 .messages-section {
   position: relative;
@@ -429,8 +432,14 @@
 }
 
 /* ─────────────────────────────
-   SECTION HEADER
+   HEADER
 ───────────────────────────── */
+
+.messages-header {
+  text-align: center;
+
+  margin-bottom: 7rem;
+}
 
 .section-label {
   font-family: var(--display);
@@ -442,8 +451,6 @@
   text-transform: uppercase;
 
   color: var(--gold);
-
-  text-align: center;
 
   margin-bottom: 1.2rem;
 }
@@ -459,9 +466,7 @@
 
   text-transform: uppercase;
 
-  text-align: center;
-
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
 
   background:
     linear-gradient(
@@ -475,110 +480,114 @@
   -webkit-text-fill-color: transparent;
 }
 
-.section-divider {
-  width: 48px;
-  height: 1px;
-
+.gold-rule.centered {
   margin: 0 auto;
-
-  background: var(--gold);
 }
 
 /* ─────────────────────────────
-   GRID
+   MESSAGE PANEL
 ───────────────────────────── */
 
-.messages-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(260px, 1fr));
-
-  gap: 1.5px;
-
-  margin-top: 4rem;
-
-  background: var(--gold-border);
-}
-
-/* ─────────────────────────────
-   CARD
-───────────────────────────── */
-
-.message-card {
+.message-panel {
   position: relative;
 
-  overflow: hidden;
+  display: grid;
 
-  padding: 4rem 3rem;
+  grid-template-columns: 420px 1fr;
 
-  background: var(--surface);
+  gap: 5rem;
 
-  transform: translateY(30px);
+  align-items: center;
+
+  margin-bottom: 8rem;
+
+  padding-bottom: 7rem;
+
+  border-bottom: 1px solid var(--gold-border);
 
   opacity: 0;
 
+  transform: translateY(40px);
+
   transition:
-    transform 1s ease,
     opacity 1s ease,
-    background 0.45s ease;
+    transform 1s ease;
 }
 
-/* REVEAL */
-
-.message-card.visible {
-  transform: translateY(0);
-
+.message-panel.visible {
   opacity: 1;
+
+  transform: translateY(0);
 }
 
-/* GOLD SIDE LIGHT */
+/* REVERSED */
 
-.message-card::before {
-  content: "";
+.message-panel.reverse {
+  grid-template-columns: 1fr 420px;
+}
 
+.message-panel.reverse .message-image-wrap {
+  order: 2;
+}
+
+.message-panel.reverse .message-content {
+  order: 1;
+}
+
+/* ─────────────────────────────
+   IMAGE
+───────────────────────────── */
+
+.message-image-wrap {
+  position: relative;
+}
+
+.message-image-glow {
   position: absolute;
 
-  top: 0;
-  left: 0;
-
-  width: 2px;
-
-  height: 0%;
+  inset: -20px;
 
   background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      var(--gold),
-      transparent
+    radial-gradient(
+      circle,
+      rgba(201,168,76,0.18),
+      transparent 70%
     );
 
-  opacity: 0.35;
+  filter: blur(30px);
+
+  z-index: 0;
+}
+
+.message-image {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  aspect-ratio: 4/5;
+
+  object-fit: cover;
+
+  border:
+    1px solid rgba(201,168,76,0.18);
+
+  background: #141219;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45);
 
   transition:
-    height 0.9s cubic-bezier(0.22,1,0.36,1),
-    opacity 0.5s ease;
+    transform 1s ease,
+    box-shadow 1s ease;
 }
 
-/* HOVER */
+.message-panel:hover .message-image {
+  transform: scale(1.02);
 
-.message-card:hover {
-  background: #141219;
-}
-
-.message-card:hover::before {
-  height: 100%;
-
-  opacity: 1;
-}
-
-/* MOBILE / SCROLL ACTIVE */
-
-.message-card.visible::before {
-  height: 100%;
-
-  opacity: 0.95;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.55);
 }
 
 /* ─────────────────────────────
@@ -588,48 +597,163 @@
 .message-number {
   display: block;
 
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.4rem;
 
   font-family: var(--display);
 
-  font-size: 0.48rem;
+  font-size: 0.52rem;
 
   letter-spacing: 0.45em;
+
+  text-transform: uppercase;
 
   color: var(--gold);
 
   opacity: 0.7;
 }
 
-.message-role {
-  margin-bottom: 1.2rem;
-
+.message-name {
   font-family: var(--display);
 
-  font-size: 0.72rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
 
-  letter-spacing: 0.2em;
+  font-weight: 400;
+
+  line-height: 1.05;
+
+  margin-bottom: 1rem;
+
+  color: #f4f1ea;
+}
+
+.message-role {
+  font-family: var(--display);
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.22em;
 
   text-transform: uppercase;
 
-  color: var(--text);
+  color: rgba(213,206,204,0.45);
+
+  margin-bottom: 2rem;
+}
+
+.message-divider {
+  width: 60px;
+  height: 1px;
+
+  background: var(--gold);
+
+  margin-bottom: 2.5rem;
 }
 
 .message-quote {
+  position: relative;
+
   font-family: var(--serif);
 
   font-style: italic;
 
-  font-size: 1.15rem;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
 
   line-height: 1.7;
 
-  color: rgba(213,206,204,0.55);
+  color: rgba(213,206,204,0.75);
+
+  margin-bottom: 2rem;
+}
+
+.message-quote::before {
+  content: "“";
+
+  position: absolute;
+
+  left: -0.5rem;
+  top: -2rem;
+
+  font-size: 5rem;
+
+  line-height: 1;
+
+  color: rgba(201,168,76,0.18);
+}
+
+.message-desc {
+  max-width: 700px;
+
+  font-size: 0.92rem;
+
+  line-height: 2;
+
+  letter-spacing: 0.04em;
+
+  color: rgba(213,206,204,0.42);
+
+  margin-bottom: 3rem;
+}
+
+/* BUTTON */
+
+.message-btn {
+  position: relative;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(201,168,76,0.35);
+
+  background: transparent;
+
+  padding:
+    1rem 2.6rem;
+
+  font-family: var(--display);
+
+  font-size: 0.6rem;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+
+  cursor: pointer;
+
+  transition:
+    background 0.5s ease,
+    color 0.5s ease,
+    transform 0.4s ease;
+}
+
+.message-btn:hover {
+  background: var(--gold);
+
+  color: #111;
+
+  transform: translateY(-2px);
 }
 
 /* ─────────────────────────────
    RESPONSIVE
 ───────────────────────────── */
+
+@media (max-width: 1100px) {
+
+  .message-panel,
+  .message-panel.reverse {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .message-panel.reverse .message-image-wrap,
+  .message-panel.reverse .message-content {
+    order: initial;
+  }
+
+}
 
 @media (max-width: 768px) {
 
@@ -637,17 +761,40 @@
     padding: 7rem 1.5rem;
   }
 
-  .message-card {
-    padding: 3rem 2rem;
+  .messages-header {
+    margin-bottom: 5rem;
+  }
+
+  .message-panel {
+    margin-bottom: 6rem;
+
+    padding-bottom: 5rem;
+  }
+
+  .message-name {
+    font-size: 2.1rem;
   }
 
   .message-quote {
-    font-size: 1.02rem;
+    font-size: 1.25rem;
 
     line-height: 1.8;
   }
 
+  .message-desc {
+    font-size: 0.88rem;
+
+    line-height: 1.9;
+  }
+
+  .message-btn {
+    width: 100%;
+  }
+
 }
+
+
+/* ── SECTION: HISTORY ── */
   /* ── SECTION: HISTORY ── */
   .history-section {
     padding: 10rem 5vw;

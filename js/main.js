@@ -24,6 +24,23 @@ burger.addEventListener('click', () => {
 });
 
 /* ─────────────────────────────
+   HERO PARALLAX
+───────────────────────────── */
+
+window.addEventListener('scroll', () => {
+
+  const heroBg = document.querySelector('.hero-bg');
+
+  if (!heroBg) return;
+
+  const y = window.scrollY * 0.18;
+
+  heroBg.style.transform =
+    `scale(1.06) translateY(${y}px)`;
+
+});
+
+/* ─────────────────────────────
    SCROLL REVEAL
 ───────────────────────────── */
 
@@ -82,6 +99,8 @@ messageCards.forEach(card => {
 window.addEventListener('scroll', () => {
 
   const nav = document.querySelector('nav');
+
+  if (!nav) return;
 
   nav.style.background =
     window.scrollY > 80

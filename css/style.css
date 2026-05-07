@@ -394,76 +394,260 @@
   .reveal-delay-3 { transition-delay: 0.36s; }
 
   /* ── SECTION: MESSAGES ── */
+  /* ─────────────────────────────
+   MESSAGES SECTION
+───────────────────────────── */
+
+.messages-section {
+  position: relative;
+
+  padding: 10rem 5vw;
+
+  background: var(--deep);
+}
+
+/* TOP DIVIDER */
+
+.messages-section::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-dim),
+      transparent
+    );
+}
+
+/* ─────────────────────────────
+   SECTION HEADER
+───────────────────────────── */
+
+.section-label {
+  font-family: var(--display);
+
+  font-size: 0.58rem;
+
+  letter-spacing: 0.45em;
+
+  text-transform: uppercase;
+
+  color: var(--gold);
+
+  text-align: center;
+
+  margin-bottom: 1.2rem;
+}
+
+.section-title {
+  font-family: var(--display);
+
+  font-size: clamp(1.8rem, 5vw, 3rem);
+
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  text-align: center;
+
+  margin-bottom: 1.2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      #C9A84C,
+      #f0d880,
+      #a07830
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-divider {
+  width: 48px;
+  height: 1px;
+
+  margin: 0 auto;
+
+  background: var(--gold);
+}
+
+/* ─────────────────────────────
+   GRID
+───────────────────────────── */
+
+.messages-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 1.5px;
+
+  margin-top: 4rem;
+
+  background: var(--gold-border);
+}
+
+/* ─────────────────────────────
+   CARD
+───────────────────────────── */
+
+.message-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 4rem 3rem;
+
+  background: var(--surface);
+
+  transform: translateY(30px);
+
+  opacity: 0;
+
+  transition:
+    transform 1s ease,
+    opacity 1s ease,
+    background 0.45s ease;
+}
+
+/* REVEAL */
+
+.message-card.visible {
+  transform: translateY(0);
+
+  opacity: 1;
+}
+
+/* GOLD SIDE LIGHT */
+
+.message-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 2px;
+
+  height: 0%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  opacity: 0.35;
+
+  transition:
+    height 0.9s cubic-bezier(0.22,1,0.36,1),
+    opacity 0.5s ease;
+}
+
+/* HOVER */
+
+.message-card:hover {
+  background: #141219;
+}
+
+.message-card:hover::before {
+  height: 100%;
+
+  opacity: 1;
+}
+
+/* MOBILE / SCROLL ACTIVE */
+
+.message-card.visible::before {
+  height: 100%;
+
+  opacity: 0.95;
+}
+
+/* ─────────────────────────────
+   CONTENT
+───────────────────────────── */
+
+.message-number {
+  display: block;
+
+  margin-bottom: 1.8rem;
+
+  font-family: var(--display);
+
+  font-size: 0.48rem;
+
+  letter-spacing: 0.45em;
+
+  color: var(--gold);
+
+  opacity: 0.7;
+}
+
+.message-role {
+  margin-bottom: 1.2rem;
+
+  font-family: var(--display);
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--text);
+}
+
+.message-quote {
+  font-family: var(--serif);
+
+  font-style: italic;
+
+  font-size: 1.15rem;
+
+  line-height: 1.7;
+
+  color: rgba(213,206,204,0.55);
+}
+
+/* ─────────────────────────────
+   RESPONSIVE
+───────────────────────────── */
+
+@media (max-width: 768px) {
+
   .messages-section {
-    padding: 10rem 5vw;
-    background: var(--deep);
-    position: relative;
-  }
-
-  .messages-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-  }
-
-  .messages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5px;
-    margin-top: 4rem;
-    background: var(--gold-border);
+    padding: 7rem 1.5rem;
   }
 
   .message-card {
-    background: var(--surface);
-    padding: 3rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.4s;
-  }
-
-  .message-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 2px;
-    height: 0;
-    background: var(--gold);
-    transition: height 0.5s cubic-bezier(0.22,1,0.36,1);
-  }
-
-  .message-card:hover { background: #141219; }
-  .message-card:hover::before { height: 100%; }
-
-  .message-number {
-    font-family: var(--display);
-    font-size: 0.48rem;
-    letter-spacing: 0.45em;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 1.8rem;
-    opacity: 0.7;
-  }
-
-  .message-role {
-    font-family: var(--display);
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text);
-    margin-bottom: 1.2rem;
+    padding: 3rem 2rem;
   }
 
   .message-quote {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: rgba(213,206,204,0.55);
+    font-size: 1.02rem;
+
+    line-height: 1.8;
   }
 
+}
   /* ── SECTION: HISTORY ── */
   .history-section {
     padding: 10rem 5vw;
